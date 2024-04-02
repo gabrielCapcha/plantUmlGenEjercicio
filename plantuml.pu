@@ -1,0 +1,88 @@
+@startuml
+class models.Enterprise{
+    name:string
+    address:string
+    phone:string
+}
+class models.User{
+    username:string
+    password:string
+    role:integer
+}
+class models.Department{
+    name:string
+    description:string
+    enterprise_id:integer
+}
+class models.Employee{
+    user_id:integer
+    name:string
+    lastname:string
+    document:string
+    type_document:integer
+    department_id:integer
+}
+class models.Provider{
+    name:string
+    address:string
+    phone:string
+}
+class models.Product{
+    name:string
+    description:string
+    price:string
+}
+class models.PurchaseOrder{
+    serie:string
+    correlative:integer
+    stored_at:date
+    state:integer
+}
+class models.SaleOrder{
+    serie:string
+    correlative:integer
+    stored_at:date
+    state:integer
+}
+class controllers.Enterprise{
+    resource()
+    asignRuc()
+}
+class controllers.User{
+    register()
+    login()
+    logout()
+}
+class controllers.Department{
+    resource()
+}
+class controllers.Employee{
+    resource()
+}
+class controllers.Product{
+    resource()
+}
+class controllers.Provider{
+    resource()
+}
+class controllers.SaleOrder{
+    resource()
+    removeStock()
+}
+class controllers.PurchaseOrder{
+    resource()
+    addStock()
+}
+
+
+
+models.Enterprise"1"*--"*"models.Department
+models.Department"1"*--"*"models.Employee
+models.User"1"--"1"models.Employee
+models.Provider"*"-->"*"models.Enterprise
+models.Employee"1"*--"*"models.PurchaseOrder
+models.Employee"1"*--"*"models.SaleOrder
+models.Product"*"--*"1"models.SaleOrder
+models.Product"*"--*"1"models.PurchaseOrder
+models.Provider"1"*--"*"models.PurchaseOrder
+@enduml

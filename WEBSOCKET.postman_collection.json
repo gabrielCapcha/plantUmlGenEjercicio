@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "57427072-3b85-4f57-854c-9b401fa4338d",
+		"name": "WEBSOCKET",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9984444"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
